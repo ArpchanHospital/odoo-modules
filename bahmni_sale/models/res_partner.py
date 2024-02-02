@@ -15,6 +15,7 @@ class ResPartner(models.Model):
     local_name = fields.Char(string="Local Name")
     uuid = fields.Char(string = "UUID")
     attribute_ids = fields.One2many('res.partner.attributes', 'partner_id', string='Attributes')
+    age_catogory = fields.Char(string="age_catogory")
 
 
     # inherited to update display name w.r.t. ref field 
