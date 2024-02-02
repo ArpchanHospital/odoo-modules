@@ -38,5 +38,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: package/docker/freshDB/Dockerfile
           push: true
-          tags: bahmni/odoo-10-db:fresh-${{env.ARTIFACT_VERSION}},bahmni/odoo-10-db:fresh-latest
+          tags: itsolutionsdocker/odoo-10-db:fresh-${{env.ARTIFACT_VERSION}},itsolutionsdocker/odoo-10-db:fresh-latest
 
