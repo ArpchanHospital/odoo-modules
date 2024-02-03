@@ -11,4 +11,5 @@ COPY bahmni_stock ${ADDON_PATH}/bahmni_stock/
 COPY bahmni_web_extension ${ADDON_PATH}/bahmni_web_extension/
 COPY web_readonly_bypass ${ADDON_PATH}/web_readonly_bypass/
 COPY todo_app ${ADDON_PATH}/todo_app/
+COPY todo_app2 ${ADDON_PATH}/todo_app2/
 CMD ["odoo", "-u", "all"]
