@@ -12,7 +12,6 @@
 				<field name="tehsil_id" placeholder="Tehsil.." class="o_address_state"
 					style="width:31% !important"/>
 				<field name="district_id" placeholder="District.." class="o_address_state"/>
-				<field name="age_catogory" placeholder="Age Category"  String="Age Category"/>
 				<br/>
 			</xpath>
 			<xpath expr="//field[@name='ref']" position="replace">
@@ -24,7 +23,9 @@ and in case user exactly don't know the position, he/she will need to search for
 			</xpath>
             <xpath expr="//field[@name='lang']" position="after">
                 <field name="uuid" invisible = "1"/>
+		<field name="age_catogory" placeholder="Age Category"  String="Age Category"/>
             </xpath>
+			
             <xpath expr="//form/sheet/notebook" position="inside">
                 <page string="Additional Info">
                     <field name="attribute_ids">
