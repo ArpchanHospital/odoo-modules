@@ -26,6 +26,6 @@
     ],
     'data': [
        'views/partnerCusotmization.xml',
-       'views/product_template.xml,
+       'views/product_template.xml',
     ],
 }
