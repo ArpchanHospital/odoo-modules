@@ -13,4 +13,5 @@ COPY web_readonly_bypass ${ADDON_PATH}/web_readonly_bypass/
 COPY todo_app ${ADDON_PATH}/todo_app/
 COPY testodoo-main ${ADDON_PATH}/testodoo-main/
 COPY report_csv ${ADDON_PATH}/report_csv/
+COPY purchase_discount ${ADDON_PATH}/purchase_discount/
 CMD ["odoo", "-u", "all"]
