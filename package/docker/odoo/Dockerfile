@@ -14,4 +14,5 @@ COPY todo_app ${ADDON_PATH}/todo_app/
 COPY testodoo-main ${ADDON_PATH}/testodoo-main/
 COPY report_csv ${ADDON_PATH}/report_csv/
 COPY purchase_discount ${ADDON_PATH}/purchase_discount/
+COPY account_financial_report_qweb ${ADDON_PATH}/account_financial_report_qweb/
 CMD ["odoo", "-u", "all"]
