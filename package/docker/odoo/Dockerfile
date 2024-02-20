@@ -19,4 +19,5 @@ COPY account_group ${ADDON_PATH}/account_group/
 COPY date_range ${ADDON_PATH}/date_range/
 COPY report_xlsx ${ADDON_PATH}/report_xlsx/
 COPY web_widget_many2many_tags_multi_selection ${ADDON_PATH}/web_widget_many2many_tags_multi_selection/
+COPY report_pdf_options ${ADDON_PATH}/report_pdf_options/
 CMD ["odoo", "-u", "all"]
