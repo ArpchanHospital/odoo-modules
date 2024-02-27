@@ -1,10 +1,10 @@
 
 # -*- coding: utf-8 -*-
 {
-    'name':'MULTI PRICE',
-    'description':'MULTI PRICE',
-    'author':'Nepal EHR',
-    'website': 'https://www.nepalehr.org/',
+    'name':'Custom',
+    'description':'Custom',
+    'author':'Arpchan',
+    'website': 'https://www.arpchan.com/',
     'application': True,
     'category': '',
     'version': '0.1',
