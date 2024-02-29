@@ -78,6 +78,7 @@ ActionManager.include({
             response[0] = report_url;
             response[1] = action.report_type;
             var c = crash_manager;
+            var pyeval = require('web.pyeval');
 
             if (action.report_type == 'qweb-html') {
                 window.open(report_url, '_blank', 'scrollbars=1,height=900,width=1280');
