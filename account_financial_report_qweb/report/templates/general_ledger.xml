@@ -15,7 +15,7 @@
 
     <template id="report_general_ledger_base">
         <!-- Saved flag fields into variables, used to define columns display -->
-        <t t-set="show_cost_center" t-value="o.show_cost_center"/>
+        <!-- <t t-set="show_cost_center" t-value="o.show_cost_center"/> -->
         <t t-set="foreign_currency" t-value="o.foreign_currency"/>
         <!-- Defines global variables used by internal layout -->
         <t t-set="title" style="text-align: center;">General Ledger - <t t-raw="o.company_id.name"/> - <t t-raw="o.company_id.currency_id.name"/></t>
@@ -81,16 +81,16 @@
         <div class="act_as_table data_table" style="width: 100%;">
             <div class="act_as_row labels">
                 <div class="act_as_cell">Date range filter</div>
-                <div class="act_as_cell">Target moves filter</div>
+                <!-- <div class="act_as_cell">Target moves filter</div>
                 <div class="act_as_cell">Account balance at 0 filter</div>
                 <div class="act_as_cell">Centralize filter</div>
-                <div class="act_as_cell">Show analytic tags</div>
+                <div class="act_as_cell">Show analytic tags</div> -->
             </div>
             <div class="act_as_row">
                 <div class="act_as_cell">
                     From: <span t-field="o.date_from"/> To: <span t-field="o.date_to"/>
                 </div>
-                <div class="act_as_cell">
+                <!-- <div class="act_as_cell">
                     <t t-if="o.only_posted_moves">All posted entries</t>
                     <t t-if="not o.only_posted_moves">All entries</t>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="act_as_cell">
                     <t t-if="o.show_analytic_tags">Yes</t>
                     <t t-if="not o.show_analytic_tags">No</t>
-                </div>
+                </div> -->
             </div>
         </div>
     </template>
@@ -122,28 +122,28 @@
                     <!--## move-->
                     <div class="act_as_cell" style="width: 8.77%">Entry</div>
                     <!--## journal-->
-                    <div class="act_as_cell" style="width: 4.13%;">Journal</div>
+                    <!-- <div class="act_as_cell" style="width: 4.13%;">Journal</div> -->
                     <!--## account code-->
                     <div class="act_as_cell" style="width: 4.70%;">Account</div>
                     <!--## account code-->
-                    <div class="act_as_cell" style="width: 8.89%;">Taxes</div>
+                    <!-- <div class="act_as_cell" style="width: 8.89%;">Taxes</div> -->
                     <!--## partner-->
                     <div class="act_as_cell" style="width: 10.0%;">Partner
                     </div>
                     <!--## ref - label-->
                     <div class="act_as_cell" style="width: 17.0%;">Ref -
                         Label</div>
-                    <t t-if="show_cost_center">
-                        <!--## cost_center-->
+                    <!-- <t t-if="show_cost_center">
+                        ## cost_center
                         <div class="act_as_cell" style="width: 7.03%;">Cost
                             center</div>
-                    </t>
-                    <t t-if="show_analytic_tags">
-                        <!--## analytic tags-->
+                    </t> -->
+                    <!-- <t t-if="show_analytic_tags">
+                        ## analytic tags
                         <div class="act_as_cell" style="width: 4.75%;">Tags</div>
-                    </t>
+                    </t> -->
                     <!--## matching_number-->
-                    <div class="act_as_cell" style="width: 2.41%;">Rec.</div>
+                    <!-- <div class="act_as_cell" style="width: 2.41%;">Rec.</div> -->
                     <!--## debit-->
                     <div class="act_as_cell amount" style="width: 8.02%;">Debit</div>
                     <!--## credit-->
@@ -166,25 +166,25 @@
                 <!--## move-->
                 <div class="act_as_cell"/>
                 <!--## journal-->
-                <div class="act_as_cell"/>
+                <!-- <div class="act_as_cell"/> -->
                 <!--## account code-->
                 <div class="act_as_cell"/>
                 <!--## taxes-->
-                <div class="act_as_cell"/>
+                <!-- <div class="act_as_cell"/> -->
                 <!--## partner-->
                 <div class="act_as_cell"/>
                 <!--## ref - label-->
                 <div class="act_as_cell amount">Initial balance</div>
-                <t t-if="show_cost_center">
-                    <!--## cost_center-->
+                <!-- <t t-if="show_cost_center">
+                    ## cost_center
                     <div class="act_as_cell"/>
-                </t>
-                <t t-if="show_analytic_tags">
-                    <!--## analytic tags-->
+                </t> -->
+                <!-- <t t-if="show_analytic_tags">
+                    ## analytic tags
                     <div class="act_as_cell"></div>
-                </t>
+                </t> -->
                 <!--## matching_number-->
-                <div class="act_as_cell"/>
+                <!-- <div class="act_as_cell"/> -->
                 <!--## debit-->
                 <div class="act_as_cell amount">
                     <t t-if="type == 'account_type'">
@@ -341,7 +341,7 @@
                         </span>
                     </div>
                     <!--## journal-->
-                    <div class="act_as_cell left">
+                    <!-- <div class="act_as_cell left">
                         <t t-set="res_model" t-value="'account.journal'"/>
                         <span>
                             <a t-att-data-active-id="line.move_line_id.move_id.journal_id.id"
@@ -350,7 +350,7 @@
                                style="color: black; cursor: pointer;">
                                 <t t-raw="line.journal"/></a>
                         </span>
-                    </div>
+                    </div> -->
                     <!--## account code-->
                     <div class="act_as_cell left">
                         <t t-set="res_model" t-value="'account.account'"/>
@@ -363,7 +363,7 @@
                         </span>
                     </div>
                     <!--## taxes-->
-                    <div class="act_as_cell left"><span t-field="line.taxes_description"/></div>
+                    <!-- <div class="act_as_cell left"><span t-field="line.taxes_description"/></div> -->
                     <!--## partner-->
                     <div class="act_as_cell left">
                         <t t-set="res_model" t-value="'res.partner'"/>
@@ -386,7 +386,7 @@
                         </span>
                     </div>
                     <!--## cost_center-->
-                    <t t-if="show_cost_center">
+                    <!-- <t t-if="show_cost_center">
                         <div class="act_as_cell left">
                             <t t-set="res_model" t-value="'account_analytic_account'"/>
                             <span t-if="line.cost_center">
@@ -396,13 +396,13 @@
                                    style="color: black; cursor: pointer;"><t t-raw="line.cost_center"/></a>
                             </span>
                         </div>
-                    </t>
-                    <t t-if="show_analytic_tags">
-                        <!--## analytic tags-->
+                    </t> -->
+                    <!-- <t t-if="show_analytic_tags">
+                        ## analytic tags
                         <div class="act_as_cell left"><span t-field="line.tags"/></div>
-                    </t>
+                    </t> -->
                     <!--## matching_number-->
-                    <div class="act_as_cell">
+                    <!-- <div class="act_as_cell">
                         <t t-set="res_model" t-value="'account.full.reconcile'"/>
                         <span t-if="line.matched_ml_id">
                             <a t-att-data-active-id="line.matched_ml_id.id"
@@ -410,7 +410,7 @@
                                class="o_account_financial_reports_web_action underline-on-hover">
                                 <t  t-att-style="style" t-raw="line.matched_ml_id.name"/></a>
                         </span>
-                    </div>
+                    </div> -->
                     <!--## debit-->
                     <div class="act_as_cell amount">
                         <t t-set="res_model" t-value="'account.move.line'"/>
@@ -491,16 +491,16 @@
                     <div class="act_as_cell first_column" style="width: 35.5%;"/>
                     <div class="act_as_cell right" style="width: 22.9%;">Partner ending balance</div>
                 </t>
-                <t t-if="show_cost_center">
-                    <!--## cost_center-->
+                <!-- <t t-if="show_cost_center">
+                    ## cost_center
                     <div class="act_as_cell" style="width: 7.03%"/>
                 </t>
                 <t t-if="show_analytic_tags">
-                    <!--## analytic tags-->
+                    ## analytic tags
                     <div class="act_as_cell" style="width: 4.75%;"></div>
                 </t>
-                <!--## matching_number-->
-                <div class="act_as_cell" style="width: 2.41%;"/>
+                ## matching_number
+                <div class="act_as_cell" style="width: 2.41%;"/> -->
                 <!--## debit-->
                 <div class="act_as_cell amount" style="width: 8.02%;">
                     <span t-field="account_or_partner_object.final_debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
