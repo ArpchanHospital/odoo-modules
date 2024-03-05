@@ -6,6 +6,7 @@
 
 from . import abstract_report_xlsx
 from odoo.report import report_sxw
+from datetime import datetime
 from odoo import _
 
 
