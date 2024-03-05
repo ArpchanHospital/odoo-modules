@@ -24,23 +24,23 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
         res = {
             0: {'header': _('Date'), 'field': 'date', 'width': 11},
             1: {'header': _('Entry'), 'field': 'entry', 'width': 18},
-            2: {'header': _('Journal'), 'field': 'journal', 'width': 8},
+            # 2: {'header': _('Journal'), 'field': 'journal', 'width': 8},
             3: {'header': _('Account'), 'field': 'account', 'width': 9},
-            4: {'header': _('Taxes'),
-                'field': 'taxes_description',
-                'width': 15},
+            # 4: {'header': _('Taxes'),
+            #     'field': 'taxes_description',
+            #     'width': 15},
             5: {'header': _('Partner'), 'field': 'partner', 'width': 25},
             6: {'header': _('Ref - Label'), 'field': 'label', 'width': 40},
-            7: {'header': _('Cost center'),
-                'field': 'cost_center',
-                'width': 15},
-            8: {'header': _('Tags'),
-                'field': 'tags',
-                'width': 10},
-            9: {'header': _('Rec.'),
-                'field': 'matched_ml_id',
-                'type': 'many2one',
-                'width': 5},
+            # 7: {'header': _('Cost center'),
+            #     'field': 'cost_center',
+            #     'width': 15},
+            # 8: {'header': _('Tags'),
+            #     'field': 'tags',
+            #     'width': 10},
+            # 9: {'header': _('Rec.'),
+            #     'field': 'matched_ml_id',
+            #     'type': 'many2one',
+            #     'width': 5},
             10: {'header': _('Debit'),
                  'field': 'debit',
                  'field_initial_balance': 'initial_debit',
@@ -81,32 +81,34 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
         return res
 
     def _get_report_filters(self, report):
+        date_from = report.date_from.strftime('%d-%m-%Y')
+        date_to = report.date_to.strftime('%d-%m-%Y')
         return [
             [
                 _('Date range filter'),
                 _('From: %s To: %s') % (report.date_from, report.date_to),
-            ],
-            [
-                _('Target moves filter'),
-                _('All posted entries') if report.only_posted_moves
-                else _('All entries'),
-            ],
-            [
-                _('Account balance at 0 filter'),
-                _('Hide') if report.hide_account_at_0 else _('Show'),
-            ],
-            [
-                _('Centralize filter'),
-                _('Yes') if report.centralize else _('No'),
-            ],
-            [
-                _('Show analytic tags'),
-                _('Yes') if report.show_analytic_tags else _('No'),
-            ],
-            [
-                _('Show foreign currency'),
-                _('Yes') if report.foreign_currency else _('No')
-            ],
+            ]
+            # [
+            #     _('Target moves filter'),
+            #     _('All posted entries') if report.only_posted_moves
+            #     else _('All entries'),
+            # ],
+            # [
+            #     _('Account balance at 0 filter'),
+            #     _('Hide') if report.hide_account_at_0 else _('Show'),
+            # ],
+            # [
+            #     _('Centralize filter'),
+            #     _('Yes') if report.centralize else _('No'),
+            # ],
+            # [
+            #     _('Show analytic tags'),
+            #     _('Yes') if report.show_analytic_tags else _('No'),
+            # ],
+            # [
+            #     _('Show foreign currency'),
+            #     _('Yes') if report.foreign_currency else _('No')
+            # ],
         ]
 
     def _get_col_count_filter_name(self):
