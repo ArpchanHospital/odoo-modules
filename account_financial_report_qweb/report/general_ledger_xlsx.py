@@ -82,8 +82,8 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
         return res
 
     def _get_report_filters(self, report):
-        date_from = report.date_from.strftime('%d-%m-%Y')
-        date_to = report.date_to.strftime('%d-%m-%Y')
+        # date_from = report.date_from.strftime('%d-%m-%Y')
+        # date_to = report.date_to.strftime('%d-%m-%Y')
         return [
             [
                 _('Date range filter'),
