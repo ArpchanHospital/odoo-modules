@@ -12,7 +12,7 @@
         <div class="footer">
             <div class="row">
                 <div class="col-xs-6 custom_footer">
-                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"/>
                 </div>
                 <div class="col-xs-6 text-right custom_footer">
                     <ul class="list-inline">
