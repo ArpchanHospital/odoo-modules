@@ -6,7 +6,6 @@
 
 from . import abstract_report_xlsx
 from odoo.report import report_sxw
-from datetime import datetime
 from odoo import _
 
 
@@ -26,12 +25,12 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
             0: {'header': _('Date'), 'field': 'date', 'width': 11},
             1: {'header': _('Entry'), 'field': 'entry', 'width': 18},
             # 2: {'header': _('Journal'), 'field': 'journal', 'width': 8},
-            3: {'header': _('Account'), 'field': 'account', 'width': 9},
+            2: {'header': _('Account'), 'field': 'account', 'width': 9},
             # 4: {'header': _('Taxes'),
             #     'field': 'taxes_description',
             #     'width': 15},
-            5: {'header': _('Partner'), 'field': 'partner', 'width': 25},
-            6: {'header': _('Ref - Label'), 'field': 'label', 'width': 40},
+            3: {'header': _('Partner'), 'field': 'partner', 'width': 25},
+            4: {'header': _('Ref - Label'), 'field': 'label', 'width': 40},
             # 7: {'header': _('Cost center'),
             #     'field': 'cost_center',
             #     'width': 15},
@@ -42,13 +41,13 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
             #     'field': 'matched_ml_id',
             #     'type': 'many2one',
             #     'width': 5},
-            10: {'header': _('Debit'),
+            5: {'header': _('Debit'),
                  'field': 'debit',
                  'field_initial_balance': 'initial_debit',
                  'field_final_balance': 'final_debit',
                  'type': 'amount',
                  'width': 14},
-            11: {
+            6: {
                 'header': _('Credit'),
                 'field': 'credit',
                 'field_initial_balance': 'initial_credit',
@@ -56,7 +55,7 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
                 'type': 'amount',
                 'width': 14
             },
-            12: {'header': _('Cumul. Bal.'),
+            7: {'header': _('Cumul. Bal.'),
                  'field': 'cumul_balance',
                  'field_initial_balance': 'initial_balance',
                  'field_final_balance': 'final_balance',
@@ -65,12 +64,12 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
         }
         if report.foreign_currency:
             foreign_currency = {
-                13: {'header': _('Cur.'),
+                8: {'header': _('Cur.'),
                      'field': 'currency_id',
                      'field_currency_balance': 'currency_id',
                      'type': 'many2one',
                      'width': 7},
-                14: {'header': _('Amount cur.'),
+                9: {'header': _('Amount cur.'),
                      'field': 'amount_currency',
                      'field_initial_balance':
                          'initial_balance_foreign_currency',
