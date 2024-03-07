@@ -24,6 +24,9 @@ COPY web_pdf_preview ${ADDON_PATH}/web_pdf_preview/
 # COPY account_report_xlsx_menu ${ADDON_PATH}/account_report_xlsx_menu/
 CMD ["odoo", "-u", "all"]
 # Install debugpy for remote debugging
+# Ensure Python3 and pip are available
+USER root
+RUN apt-get update && apt-get install -y python3-pip
 RUN pip3 install debugpy
 
 # Use a shell command to check the ODOO_DEBUG_MODE environment variable
