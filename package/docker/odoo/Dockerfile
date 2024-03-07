@@ -23,3 +23,14 @@ COPY report_pdf_options ${ADDON_PATH}/report_pdf_options/
 COPY web_pdf_preview ${ADDON_PATH}/web_pdf_preview/
 # COPY account_report_xlsx_menu ${ADDON_PATH}/account_report_xlsx_menu/
 CMD ["odoo", "-u", "all"]
+# Install debugpy for remote debugging
+RUN pip3 install debugpy
+
+# Use a shell command to check the ODOO_DEBUG_MODE environment variable
+CMD if [ "$ODOO_DEBUG_MODE" = "true" ]; then \
+        echo "Starting Odoo in debug mode..."; \
+        exec python3 -m debugpy --listen 0.0.0.0:5678 --wait-for-client /usr/bin/odoo -u all -c /etc/odoo/odoo.conf; \
+    else \
+        echo "Starting Odoo normally..."; \
+        exec /usr/bin/odoo -u all -c /etc/odoo/odoo.conf; \
+    fi
