@@ -209,7 +209,7 @@ class GeneralLedgerReportMoveLine(models.TransientModel):
         if self.date:
             # Change the format of the date field from YYYY-MM-DD to DD/MM/YYYY
             formatted_date = self.date.strftime('%d/%m/%Y')
-            self.date = formatted_date
+            self.date = '01/01/2000'
 
 
 
