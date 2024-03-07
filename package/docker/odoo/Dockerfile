@@ -26,17 +26,22 @@ CMD ["odoo", "-u", "all"]
 # Install debugpy for remote debugging
 # Ensure Python3 and pip are available
 USER root
-# Use archived Debian Jessie sources
+# Switch to archived Debian Jessie sources but keep using http to avoid errors related to apt-transport-https
 RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list \
-    && sed -i 's/security.debian.org/debian-archive.debian.org/g' /etc/apt/sources.list \
-    && sed -i 's/http:/https:/g' /etc/apt/sources.list
+    && sed -i 's/security.debian.org/debian-archive.debian.org/g' /etc/apt/sources.list
 
 # Allow APT to use repositories that are not authenticated
 RUN echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/10no-check-valid-until \
     && echo 'APT::Get::AllowUnauthenticated "true";' >> /etc/apt/apt.conf.d/10no-check-valid-until
 
-# Install Python3 and pip
+# Update and install apt-transport-https before attempting to use https URLs (if needed)
+RUN apt-get update && apt-get install -y --allow-unauthenticated apt-transport-https
+
+# Now, if you really need to switch to https (not recommended for this case), do it here
+
+# Proceed to install Python3 and pip
 RUN apt-get update && apt-get install -y python3-pip --allow-unauthenticated
+
 
 RUN pip3 install debugpy
 
