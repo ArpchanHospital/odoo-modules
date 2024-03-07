@@ -14,4 +14,12 @@ COPY todo_app ${ADDON_PATH}/todo_app/
 COPY testodoo-main ${ADDON_PATH}/testodoo-main/
 COPY report_csv ${ADDON_PATH}/report_csv/
 COPY purchase_discount ${ADDON_PATH}/purchase_discount/
+COPY account_financial_report_qweb ${ADDON_PATH}/account_financial_report_qweb/
+COPY account_group ${ADDON_PATH}/account_group/
+COPY date_range ${ADDON_PATH}/date_range/
+COPY report_xlsx ${ADDON_PATH}/report_xlsx/
+COPY web_widget_many2many_tags_multi_selection ${ADDON_PATH}/web_widget_many2many_tags_multi_selection/
+COPY report_pdf_options ${ADDON_PATH}/report_pdf_options/
+COPY web_pdf_preview ${ADDON_PATH}/web_pdf_preview/
+# COPY account_report_xlsx_menu ${ADDON_PATH}/account_report_xlsx_menu/
 CMD ["odoo", "-u", "all"]
