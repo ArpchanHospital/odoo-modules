@@ -22,7 +22,7 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
 
     def _get_report_columns(self, report):
         res = {
-            0: {'header': _('Date'), 'field': 'date', 'width': 11, 'format': 'dd/mm/yyyy'},
+            0: {'header': _('Date'), 'field': 'date', 'width': 11},
             1: {'header': _('Entry'), 'field': 'entry', 'width': 18},
             # 2: {'header': _('Journal'), 'field': 'journal', 'width': 8},
             2: {'header': _('Account'), 'field': 'account', 'width': 9},
@@ -81,25 +81,13 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
         return res
 
     def _get_report_filters(self, report):
-        filters = super(GeneralLedgerXslx, self)._get_report_filters(report)
-        # Update the date range filter to use 'dd/mm/yyyy' format
-        date_filter = [
-            _('Date range filter'),
-            _('From: %s To: %s') % (
-                report.date_from.strftime('%d/%m/%Y'),
-                report.date_to.strftime('%d/%m/%Y')
-            ),
-        ]
-        filters.insert(0, date_filter)
-        return filters
-
-
-    # def _get_report_filters(self, report):
-    #     return [
-    #         [
-    #             _('Date range filter'),
-    #             _('From: %s To: %s') % (report.date_from.strftime('%d/%m/%Y'), report.date_to.strftime('%d/%m/%Y')),
-    #         ]
+        # date_from = report.date_from.strftime('%d-%m-%Y')
+        # date_to = report.date_to.strftime('%d-%m-%Y')
+        return [
+            [
+                _('Date range filter'),
+                _('From: %s To: %s') % (report.date_from, report.date_to),
+            ]
             # [
             #     _('Target moves filter'),
             #     _('All posted entries') if report.only_posted_moves
@@ -121,7 +109,7 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
             #     _('Show foreign currency'),
             #     _('Yes') if report.foreign_currency else _('No')
             # ],
-        # ]
+        ]
 
     def _get_col_count_filter_name(self):
         return 2
