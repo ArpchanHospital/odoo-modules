@@ -80,7 +80,7 @@ class GeneralLedgerXslx(abstract_report_xlsx.AbstractReportXslx):
             res = dict(res.items() + foreign_currency.items())
         return res
 
-      def _get_report_filters(self, report):
+    def _get_report_filters(self, report):
         filters = super(GeneralLedgerXslx, self)._get_report_filters(report)
         # Update the date range filter to use 'dd/mm/yyyy' format
         date_filter = [
