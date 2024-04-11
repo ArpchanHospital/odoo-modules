@@ -204,12 +204,12 @@ class GeneralLedgerReportMoveLine(models.TransientModel):
     currency_id = fields.Many2one(comodel_name='res.currency')
     amount_currency = fields.Float(digits=(16, 2))
     
-    @api.onchange('date')
-    def _onchange_date(self):
-        if self.date:
-            # Change the format of the date field from YYYY-MM-DD to DD/MM/YYYY
-            formatted_date = self.date.strftime('%d/%m/%Y')
-            self.date = '01/01/2000'
+    # @api.onchange('date')
+    # def _onchange_date(self):
+    #     if self.date:
+    #         # Change the format of the date field from YYYY-MM-DD to DD/MM/YYYY
+    #         formatted_date = self.date.strftime('%d/%m/%Y')
+    #         self.date = '01/01/2000'
 
 
 
