@@ -1,6 +1,7 @@
 FROM odoo:10
 
 ENV ADDON_PATH=/opt/bahmni-erp/bahmni-addons
+ENV CUSTOM_ADDON_PATH=/mnt/extra-addons
 COPY package/docker/odoo/odoo.conf /etc/odoo/odoo.conf
 COPY bahmni_account ${ADDON_PATH}/bahmni_account/
 COPY bahmni_atom_feed ${ADDON_PATH}/bahmni_atom_feed/
@@ -10,7 +11,7 @@ COPY bahmni_sale ${ADDON_PATH}/bahmni_sale/
 COPY bahmni_stock ${ADDON_PATH}/bahmni_stock/
 COPY bahmni_web_extension ${ADDON_PATH}/bahmni_web_extension/
 COPY web_readonly_bypass ${ADDON_PATH}/web_readonly_bypass/
-COPY todo_app ${ADDON_PATH}/todo_app/
+
 COPY testodoo-main ${ADDON_PATH}/testodoo-main/
 COPY report_csv ${ADDON_PATH}/report_csv/
 COPY purchase_discount ${ADDON_PATH}/purchase_discount/
@@ -22,6 +23,13 @@ COPY web_widget_many2many_tags_multi_selection ${ADDON_PATH}/web_widget_many2man
 COPY report_pdf_options ${ADDON_PATH}/report_pdf_options/
 COPY web_pdf_preview ${ADDON_PATH}/web_pdf_preview/
 COPY bahmni_insurance_odoo-master ${ADDON_PATH}/bahmni_insurance_odoo-master
+
+COPY medical ${ADDON_PATH}/medical/
+COPY medical_insurance ${ADDON_PATH}/medical_insurance/
+COPY base_locale_uom_default ${ADDON_PATH}/base_locale_uom_default/
+
+COPY custom_addons/todo_app ${CUSTOM_ADDON_PATH}/todo_app/
+
 # COPY account_report_xlsx_menu ${ADDON_PATH}/account_report_xlsx_menu/
 CMD ["odoo", "-u", "all"]
 # Install debugpy for remote debugging
