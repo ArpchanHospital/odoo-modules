@@ -1,7 +1,7 @@
 {
     'name': 'To-Do Application',
     'description': 'Manage your personal To-Do tasks.',
-    'author': 'Daniel Reis',
+    'author': 'Arpchan',
     'depends': ['base'],
     'data': [
       'security/ir.model.access.csv',
