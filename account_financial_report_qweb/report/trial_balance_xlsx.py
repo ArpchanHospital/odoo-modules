@@ -6,6 +6,7 @@
 from . import abstract_report_xlsx
 from odoo.report import report_sxw
 from odoo import _
+from datetime import datetime
 
 
 class TrialBalanceXslx(abstract_report_xlsx.AbstractReportXslx):
@@ -107,7 +108,7 @@ class TrialBalanceXslx(abstract_report_xlsx.AbstractReportXslx):
     def _get_report_filters(self, report):
         return [
             [_('Date range filter'),
-                _('From: %s To: %s') % (report.date_from, report.date_to)],
+            _('From: %s To: %s') % (datetime.strptime(report.date_from, "%Y-%m-%d").strftime("%d-%m-%Y"), datetime.strptime(report.date_to, "%Y-%m-%d").strftime("%d-%m-%Y"))],
             [_('Target moves filter'),
                 _('All posted entries') if report.only_posted_moves
                 else _('All entries')],
